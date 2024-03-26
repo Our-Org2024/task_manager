@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:task_manager/widgets/config_container.dart';
 
 import 'screens/home_page.dart';
 

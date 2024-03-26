@@ -32,6 +32,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: TextField(
+            cursorHeight: 30,
+            cursorColor: Colors.blue,
             controller: _controller,
             onTapOutside: (event) {
               FocusScope.of(context).unfocus();

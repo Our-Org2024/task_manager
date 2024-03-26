@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 
 class OngoingTasksWidget extends StatefulWidget {
   const OngoingTasksWidget({super.key});
@@ -15,7 +14,6 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
     'Item1',
     'Item2',
   ];
-
   bool isClicked = false;
 
   @override
@@ -26,20 +24,29 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Ongoing tasks', style: TextStyle(fontSize: 28, color: Colors.black),
+              'Ongoing tasks',
+              style: TextStyle(fontSize: 28, color: Colors.black),
             ),
-            IconButton(onPressed: (){
-              isClicked = true;
-              setState((){});
-            }, icon: isClicked ? GestureDetector(
-                child: const Icon(Icons.keyboard_arrow_down, size: 30,),
-            onTap: (){
+            IconButton(
+              onPressed: () {
+                isClicked = true;
+                setState(() {});
+              },
+              icon: isClicked
+                  ? GestureDetector(
+                child: const Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 30,
+                ),
+                onTap: () {
                   isClicked = false;
-                  setState(() {
-                  });
-            },)
-                : const Icon(Icons.arrow_forward_ios_outlined))
-          ]),
+                  setState(() {});
+                },
+              )
+                  : const Icon(Icons.arrow_forward_ios_outlined),
+            ),
+          ],
+        ),
       ],
     );
   }

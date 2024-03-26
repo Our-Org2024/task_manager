@@ -12,16 +12,19 @@ class ConfigContainer extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height*.4,
-          child: const Expanded(
-            child: Stack(children: [
+          height: MediaQuery.of(context).size.height * .365,
+          child: const Stack(
+            children: [
               HelloWidget(),
               TextFieldWidget(),
-            ]),
+            ],
           ),
         ),
-        const SizedBox(height: 5,),
+        // const SizedBox(
+        //   height: 5,
+        // ),
         const OngoingTasksWidget()
-      ]);
+      ],
+    );
   }
 }
