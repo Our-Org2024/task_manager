@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:task_manager/widgets/tasks.dart';
 
 class OngoingTasksWidget extends StatefulWidget {
   const OngoingTasksWidget({super.key});
@@ -11,8 +14,8 @@ Widget icon = const Icon(Icons.arrow_forward_ios_outlined);
 
 class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
   final List<String> items = [
-    'Item1',
-    'Item2',
+    'Graduation project discussion on zoom',
+    'Shooting in Samannoud & editing photos',
   ];
   bool isClicked = false;
 
@@ -26,6 +29,7 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
             const Text(
               'Ongoing tasks',
               style: TextStyle(fontSize: 28, color: Colors.black),
+              textAlign: TextAlign.start,
             ),
             IconButton(
               onPressed: () {
@@ -47,6 +51,14 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
             ),
           ],
         ),
+        const SizedBox(height: 4,),
+        const SingleChildScrollView(
+          child: Column(children: [
+            Tasks(task: 'Graduation project discussion on zoom'),
+            SizedBox(height: 4,),
+            Tasks(task: 'Shooting in Samannoud & editing photos')
+          ],),
+        )
       ],
     );
   }

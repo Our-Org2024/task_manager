@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/widgets/ongoing_tasks_widget.dart';
 
 import 'hello_widget.dart';
+import 'nav_bar.dart';
 import 'text_field_widget.dart';
 
 class ConfigContainer extends StatelessWidget {
@@ -9,22 +10,26 @@ class ConfigContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height * .365,
-          child: const Stack(
+        SingleChildScrollView(
+          child: Column(
             children: [
-              HelloWidget(),
-              TextFieldWidget(),
-            ],
-          ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .365,
+                child: const Stack(
+                  children: [
+                    HelloWidget(),
+                    TextFieldWidget(),
+                ],
+              ),
+            ),
+            const OngoingTasksWidget(),
+          ],
+                ),
         ),
-        // const SizedBox(
-        //   height: 5,
-        // ),
-        const OngoingTasksWidget()
-      ],
+        const NavBar()
+      ]
     );
   }
 }
