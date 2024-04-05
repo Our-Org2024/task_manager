@@ -30,12 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {},
           icon: const Icon(Icons.notes),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.settings),
-          ),
-        ],
+
       ),
       body: _screens[_index],
       bottomNavigationBar: NavigationBarTheme(

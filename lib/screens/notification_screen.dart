@@ -5,8 +5,14 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
-      child: Text('Notification',style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black),),
+    return Center(
+      child: Text(
+        'Notification',
+        style: Theme.of(context)
+            .textTheme
+            .bodyLarge!
+            .copyWith(color: Colors.black),
+      ),
     );
   }
 }

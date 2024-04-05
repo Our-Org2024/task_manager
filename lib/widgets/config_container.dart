@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/widgets/ongoing_tasks_widget.dart';
 
 import 'hello_widget.dart';
+import 'nav_bar.dart';
 import 'text_field_widget.dart';
 
 class ConfigContainer extends StatelessWidget {
@@ -29,6 +30,7 @@ class ConfigContainer extends StatelessWidget {
         ),
         
         // const NavBar()
+
       ]
     );
   }

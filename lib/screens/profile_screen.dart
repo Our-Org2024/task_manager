@@ -6,7 +6,13 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Profile',style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black),),
+      child: Text(
+        'Profile',
+        style: Theme.of(context)
+            .textTheme
+            .bodyLarge!
+            .copyWith(color: Colors.black),
+      ),
     );
   }
 }

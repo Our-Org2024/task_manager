@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:task_manager/widgets/tasks.dart';
 
@@ -31,6 +33,7 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
             ),
             IconButton(
               onPressed: () {
+
                 _isClicked = true;
                 setState(() {});
               },
@@ -45,6 +48,7 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
                         setState(() {});
                       },
                     )
+
                   : const Icon(Icons.arrow_forward_ios_outlined),
             ),
           ],
@@ -62,6 +66,7 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
               Tasks(task: _items[1]),
             ],
           ),
+
         )
       ],
     );
