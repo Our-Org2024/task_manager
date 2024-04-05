@@ -21,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     CalendarScreen(),
     NotificationScreen(),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,12 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {},
           icon: const Icon(Icons.notes),
         ),
-
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.settings),
+          ),
+        ],
       ),
       body: _screens[_index],
       bottomNavigationBar: NavigationBarTheme(
@@ -49,13 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
             });
           },
           destinations: [
-            navigationDestination(
+            _buildNavigationDestination(
                 Icons.home_outlined, 'Home', Icons.home_rounded),
-            navigationDestination(
+            _buildNavigationDestination(
                 Icons.person_outline, 'Profile', Icons.person),
-            navigationDestination(Icons.calendar_today_outlined, 'Calender',
-                Icons.calendar_today),
-            navigationDestination(
+            _buildNavigationDestination(Icons.calendar_today_outlined,
+                'Calender', Icons.calendar_today),
+            _buildNavigationDestination(
                 Icons.notifications_none, 'Notification', Icons.notifications),
           ],
         ),
@@ -70,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  NavigationDestination navigationDestination(
+  NavigationDestination _buildNavigationDestination(
       IconData icon, String txt, IconData selectedIcon) {
     return NavigationDestination(
       selectedIcon: Icon(selectedIcon),
