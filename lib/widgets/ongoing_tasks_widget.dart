@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/widgets/tasks.dart';
 
+import '../constants.dart';
+
 class OngoingTasksWidget extends StatefulWidget {
   const OngoingTasksWidget({super.key});
 
@@ -11,10 +13,7 @@ class OngoingTasksWidget extends StatefulWidget {
 Widget icon = const Icon(Icons.arrow_forward_ios_outlined);
 
 class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
-  final List<String> _items = [
-    'Graduation project discussion on zoom',
-    'Shooting in Samannoud & editing photos',
-  ];
+
   bool _isClicked = false;
 
   @override
@@ -36,15 +35,15 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
               },
               icon: _isClicked
                   ? GestureDetector(
-                      child: const Icon(
-                        Icons.keyboard_arrow_down,
-                        size: 30,
-                      ),
-                      onTap: () {
-                        _isClicked = false;
-                        setState(() {});
-                      },
-                    )
+                child: const Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 30,
+                ),
+                onTap: () {
+                  _isClicked = false;
+                  setState(() {});
+                },
+              )
                   : const Icon(Icons.arrow_forward_ios_outlined),
             ),
           ],
@@ -53,14 +52,20 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
           height: 4,
         ),
         if (_isClicked)
+          // ListView.builder(itemBuilder: (ctx, index){
+          //   return Tasks(task: _items[index]);
+          // }, itemCount: _items.length,)
+
           SingleChildScrollView(
             child: Column(
               children: [
-                Tasks(task: _items[0]),
-                const SizedBox(
-                  height: 4,
-                ),
-                Tasks(task: _items[1]),
+                for(int i = 0; i < items.length; i++)
+                  Column(
+                    children: [
+                      Tasks(task: items[i]),
+                      const SizedBox(height: 4,)
+                    ],
+                  )
               ],
             ),
           )

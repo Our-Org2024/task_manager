@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/add_task.dart';
 
 import '../widgets/config_container.dart';
 import 'calendar_screen.dart';
@@ -70,7 +71,10 @@ class _MyHomePageState extends State<MyHomePage> {
         shape: const CircleBorder(),
         tooltip: 'Add',
         child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const AddTask()));
+        },
       ),
     );
   }
