@@ -16,7 +16,7 @@ class Tasks extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
         ),
-        height: 120,
+        // height: 120,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

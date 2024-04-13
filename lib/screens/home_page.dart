@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/screens/add_task.dart';
 
+import '../constants.dart';
 import '../widgets/config_container.dart';
 import 'calendar_screen.dart';
 import 'notification_screen.dart';
@@ -72,8 +73,32 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Add',
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const AddTask()));
+          // Navigator.of(context).push(MaterialPageRoute(
+          //     builder: (context) => const AddTask()));
+          showModalBottomSheet(context: context, builder: (BuildContext context){
+            return Scaffold(
+              floatingActionButton: FloatingActionButton(onPressed: (){
+                if (myTask != ''){
+                  items.add(myTask);
+                }
+                Navigator.of(context).pop();
+                myTask = '';
+              },
+                child: const Icon(Icons.add),
+              ),
+              body: Expanded(
+                child: TextField(
+                  style: const TextStyle(color: Colors.black),
+                  maxLines: 99999,
+                  scrollPadding: const EdgeInsets.all(20.0),
+                  autofocus: true,
+                  onChanged: (String task){
+                    myTask = task;
+                  },
+                ),
+              ),
+            );
+          });
         },
       ),
     );
