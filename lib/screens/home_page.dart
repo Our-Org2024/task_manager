@@ -21,6 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ProfileScreen(),
     CalendarScreen(),
     NotificationScreen(),
+    NotificationScreen(),
   ];
 
   @override
@@ -56,24 +57,32 @@ class _MyHomePageState extends State<MyHomePage> {
           },
           destinations: [
             _buildNavigationDestination(
-                Icons.home_outlined, 'Home', Icons.home_rounded),
+                Icons.task_outlined, 'Tasks', Icons.task_rounded),
             _buildNavigationDestination(
                 Icons.person_outline, 'Profile', Icons.person),
             _buildNavigationDestination(Icons.calendar_today_outlined,
                 'Calender', Icons.calendar_today),
             _buildNavigationDestination(
                 Icons.notifications_none, 'Notification', Icons.notifications),
-          ],
+            DropdownButton(items: [
+              DropdownMenuItem(child: Text('df'))
+            ], onChanged: (value) {
+
+            },),
+            // _buildNavigationDestination(
+            //     Icons.settings_applications_outlined, 'Settings', Icons.settings_applications_rounded
+// )
+      ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         tooltip: 'Add',
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const AddTask()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const AddTask()));
         },
       ),
     );
