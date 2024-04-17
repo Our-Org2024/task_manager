@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Tasks extends StatelessWidget {
   const Tasks({super.key, required this.task});
@@ -16,13 +17,14 @@ class Tasks extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
         ),
-        height: 120,
+        // height: 120,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [Icon(Icons.more_horiz)],
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: Align(
+                  alignment: Alignment.topRight, child: Icon(Icons.more_horiz)),
             ),
             Text(
               '  $task',
@@ -31,13 +33,14 @@ class Tasks extends StatelessWidget {
               // Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.black),
             ),
             const SizedBox(
-              height: 8,
+              height: 5,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const SizedBox(
-                  width: 25,
-                ),
+                // const SizedBox(
+                //   width: 25,
+                // ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(32),
                   child: Image.network(
@@ -47,9 +50,9 @@ class Tasks extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(
-                  width: 130,
-                ),
+                // const SizedBox(
+                //   width: 130,
+                // ),
                 const Column(
                   children: [
                     Row(
