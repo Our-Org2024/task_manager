@@ -52,20 +52,25 @@ class _OngoingTasksWidgetState extends State<OngoingTasksWidget> {
           height: 4,
         ),
         if (_isClicked)
-          // ListView.builder(itemBuilder: (ctx, index){
-          //   return Tasks(task: _items[index]);
-          // }, itemCount: _items.length,)
-
           SingleChildScrollView(
             child: Column(
               children: [
-                for(int i = 0; i < items.length; i++)
-                  Column(
-                    children: [
-                      Tasks(task: items[i]),
-                      const SizedBox(height: 4,)
-                    ],
-                  )
+                if(isSearchButtonClicked)
+                  for(int i = 0; i < searchItems.length; i++)
+                    Column(
+                      children: [
+                        Tasks(task: searchItems[i]),
+                        const SizedBox(height: 4,)
+                      ],
+                    )
+                else
+                  for(int i = 0; i < items.length; i++)
+                    Column(
+                      children: [
+                        Tasks(task: items[i]),
+                        const SizedBox(height: 4,)
+                      ],
+                    )
               ],
             ),
           )

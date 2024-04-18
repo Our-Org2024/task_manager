@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/constants.dart';
 
 class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget({
@@ -33,6 +34,9 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: TextField(
+            onChanged: (String value){
+              searchTask = value;
+            },
             cursorHeight: 30,
             cursorColor: Colors.blue,
             controller: _controller,
@@ -41,14 +45,22 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               _controller.clear();
             },
             style: const TextStyle(color: Colors.black),
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               border: InputBorder.none,
               // prefixIconConstraints: BoxConstraints.loose(Size(100, 50)),
               floatingLabelAlignment: FloatingLabelAlignment.center,
               hintText: 'Searching for something...',
-              prefixIcon: Icon(
-                Icons.search,
-                size: 35,
+              prefixIcon: IconButton(
+                icon: const Icon(Icons.search), onPressed: (){
+                  searchItems.clear();
+                  isSearchButtonClicked = true;
+                  for(int i = 0; i < items.length; i++){
+                    if(items[i].contains(searchTask)){
+                      searchItems.add(items[i]);
+                    }
+                  }
+                  searchTask = '';
+              },
               ),
             ),
           ),

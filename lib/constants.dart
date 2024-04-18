@@ -1,6 +1,8 @@
-final List<String> items = [
-  // 'Graduation project discussion on zoom',
-  // 'Shooting in Samannoud & editing photos',
-];
-
+final List<String> items = [];
 String myTask = '';
+
+final List<String> searchItems = [];
+String searchTask = '';
+
+bool isSearchButtonClicked = false;
+
