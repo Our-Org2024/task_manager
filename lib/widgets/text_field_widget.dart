@@ -21,7 +21,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
-
     return Positioned(
       top: 145,
       left: 70,
@@ -34,14 +33,18 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: TextField(
-            onChanged: (String value){
+            onChanged: (String value) {
               searchTask = value;
             },
             cursorHeight: 30,
             cursorColor: Colors.blue,
             controller: _controller,
+            onSubmitted: (value) {
+              searchItemsTextField();
+            },
             onTapOutside: (event) {
               FocusScope.of(context).unfocus();
+              isSearchButtonClicked = false;
               _controller.clear();
             },
             style: const TextStyle(color: Colors.black),
@@ -51,21 +54,27 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               floatingLabelAlignment: FloatingLabelAlignment.center,
               hintText: 'Searching for something...',
               prefixIcon: IconButton(
-                icon: const Icon(Icons.search), onPressed: (){
-                  searchItems.clear();
-                  isSearchButtonClicked = true;
-                  for(int i = 0; i < items.length; i++){
-                    if(items[i].contains(searchTask)){
-                      searchItems.add(items[i]);
-                    }
-                  }
-                  searchTask = '';
-              },
+                icon: const Icon(Icons.search),
+                onPressed: () {
+                  searchItemsTextField();
+                },
               ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  void searchItemsTextField() {
+    searchItems.clear();
+    isSearchButtonClicked = true;
+    isClicked=false;
+    for (int i = 0; i < items.length; i++) {
+      if (items[i].contains(searchTask)) {
+        searchItems.add(items[i]);
+      }
+    }
+    searchTask = '';
   }
 }

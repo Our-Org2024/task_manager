@@ -6,3 +6,4 @@ String searchTask = '';
 
 bool isSearchButtonClicked = false;
 
+  bool isClicked = false;

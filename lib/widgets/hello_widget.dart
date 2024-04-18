@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/constants.dart';
 
 class HelloWidget extends StatelessWidget {
   const HelloWidget({
@@ -27,8 +28,23 @@ class HelloWidget extends StatelessWidget {
                         'Hello User,\nGood Morning',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
-                      subtitle: Text('10 Tasks Pending',
-                          style: Theme.of(context).textTheme.bodyMedium),
+                      subtitle: Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: '${items.length}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(color: Colors.yellow),
+                            ),
+                            TextSpan(
+                              text: ' Tasks Pending',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),

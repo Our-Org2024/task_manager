@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 class Tasks extends StatelessWidget {
   const Tasks({super.key, required this.task});
@@ -38,9 +38,6 @@ class Tasks extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                // const SizedBox(
-                //   width: 25,
-                // ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(32),
                   child: Image.network(
@@ -50,10 +47,10 @@ class Tasks extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                // const SizedBox(
-                //   width: 130,
-                // ),
-                const Column(
+                const SizedBox(
+                  width: 30,
+                ),
+                Column(
                   children: [
                     Row(
                       children: [
@@ -65,7 +62,8 @@ class Tasks extends StatelessWidget {
                           width: 3,
                         ),
                         Text(
-                          '9:00',
+                       DateFormat.yMMMEd().add_jm().format(DateTime.now()),
+
                           style: TextStyle(color: Colors.black),
                         )
                       ],

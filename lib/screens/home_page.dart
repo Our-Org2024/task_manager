@@ -81,35 +81,34 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Add',
         child: const Icon(Icons.add),
         onPressed: () {
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => const AddTask()));
-          // Navigator.of(context).push(MaterialPageRoute(
-          //     builder: (context) => const AddTask()));
           showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return Scaffold(
-                  floatingActionButton: FloatingActionButton(
-                    onPressed: () {
-                      if (myTask != '') {
-                        items.add(myTask.trim());
-                      }
-                      Navigator.of(context).pop();
-                      myTask = '';
-                    },
-                    child: const Icon(Icons.add),
-                  ),
-                  body: TextField(
-                    style: const TextStyle(color: Colors.black),
-                    maxLines: 99999,
-                    scrollPadding: const EdgeInsets.all(20.0),
-                    autofocus: true,
-                    onChanged: (String task) {
-                      myTask = task;
-                    },
-                  ),
-                );
-              });
+            context: context,
+            builder: (BuildContext context) {
+              return Scaffold(
+                floatingActionButton: FloatingActionButton(
+                  onPressed: () {
+                    if (myTask != '') {
+                      items.add(myTask.trim());
+                      isClicked = false;
+                    }
+                    Navigator.of(context).pop();
+                    myTask = '';
+                    setState(() {});
+                  },
+                  child: const Icon(Icons.add),
+                ),
+                body: TextField(
+                  style: const TextStyle(color: Colors.black),
+                  maxLines: 99999,
+                  scrollPadding: const EdgeInsets.all(20.0),
+                  autofocus: true,
+                  onChanged: (String task) {
+                    myTask = task;
+                  },
+                ),
+              );
+            },
+          );
         },
       ),
     );
